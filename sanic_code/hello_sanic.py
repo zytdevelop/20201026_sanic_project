@@ -4,8 +4,10 @@ from sanic_cors import CORS
 
 # 引入 sanic 包
 
-# 创建一个webapp
+# 创建一个webapp,创建主程序
 app = Sanic(__name__)
+
+# CORS()函数用来解决跨域问题
 CORS(app)
 
 
@@ -15,7 +17,7 @@ def func1(req):
     return text("Hi, this is sanic")
 
 
-# req.args.get() 获取请求的数据字典
+# req.args.get() 获取url请求中的数据字典
 @app.route("/login")
 def func2(req):
     uname = req.args.get("username")
@@ -39,7 +41,7 @@ def func3(req, id):
 # 改变请求方式，上述函数得到的请求都是GET请求
 # 下面学习post请求
 # req.args获取的是url字符串中的请求参数,问号传参
-# req.form获取的是post请求中的表单数据,表单数据
+# req.form获取的是post请求中的表单数据,表单数据-->sanic 表单数据中列表经过封装, 并不是python自带的列表类
 @app.route("/ddd", methods=["POST"])
 def func4(req):
     print("this is a POST request!")
