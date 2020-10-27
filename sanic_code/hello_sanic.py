@@ -2,7 +2,7 @@ from sanic import Sanic
 from sanic.response import text, json, html, file
 from sanic_cors import CORS
 
-# 引入sanic包
+# 引入 sanic 包
 
 # 创建一个webapp
 app = Sanic(__name__)
@@ -49,6 +49,7 @@ def func4(req):
     print(username)
     return text("I response for a POST request!")
 
+
 # 返回值
 # text：返回文本
 # json：返回json
@@ -61,7 +62,6 @@ def func5(req):
         return html({'a': 1, })
     else:
         return file('/templates/index.html')
-
 
 
 if __name__ == '__main__':
